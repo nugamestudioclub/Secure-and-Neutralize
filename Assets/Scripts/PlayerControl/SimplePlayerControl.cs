@@ -7,7 +7,7 @@ public class SimplePlayerControl : MonoBehaviour
 {
     CharacterController controller;
 
-    [SerializeField, Range(0f, 50f)]
+    [SerializeField, Range(0f, 100f)]
     float moveForce = 10f;
 
     void Start()
