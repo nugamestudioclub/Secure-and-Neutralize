@@ -23,8 +23,9 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 movement = transform.right * xMovement + transform.forward * zMovement;
 
-        controller.Move(movement * speed * Time.deltaTime);
+        controller.Move(speed * Time.deltaTime * movement);
 
+        /*
         if (Input.GetKeyDown("f"))
         {
             if (flashlight.activeSelf)
@@ -35,6 +36,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 flashlight.SetActive(true);
             }
-        }
+        }*/
     }
 }
