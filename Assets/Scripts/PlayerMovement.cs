@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public GameObject flashlight;
 
     public float speed = 10f;
 
@@ -24,18 +23,5 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movement = transform.right * xMovement + transform.forward * zMovement;
 
         controller.Move(speed * Time.deltaTime * movement);
-
-        /*
-        if (Input.GetKeyDown("f"))
-        {
-            if (flashlight.activeSelf)
-            {
-                flashlight.SetActive(false);
-            }
-            else
-            {
-                flashlight.SetActive(true);
-            }
-        }*/
     }
 }
