@@ -10,13 +10,6 @@ public class SimplePlayerControl : MonoBehaviour
     [SerializeField, Range(0f, 50f)]
     float moveForce = 10f;
 
-    [SerializeField]
-    KeyCode
-        up = KeyCode.W,
-        down = KeyCode.S,
-        left = KeyCode.A,
-        right = KeyCode.D;
-
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -38,25 +31,9 @@ public class SimplePlayerControl : MonoBehaviour
     {
         Vector3 current_movement = Vector3.zero;
 
-        if (Input.GetKey(up))
-        {
-            current_movement += Vector3.forward;
-        }
-
-        if (Input.GetKey(down))
-        {
-            current_movement += Vector3.back;
-        }
-
-        if (Input.GetKey(left))
-        {
-            current_movement += Vector3.left;
-        }
-
-        if (Input.GetKey(right))
-        {
-            current_movement += Vector3.right;
-        }
+        current_movement +=
+            transform.forward * Input.GetAxis("Horizontal") +
+            transform.right * Input.GetAxis("Vertical");
 
         controller.SimpleMove(current_movement * moveForce);
     }

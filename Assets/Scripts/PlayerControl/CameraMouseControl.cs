@@ -9,7 +9,7 @@ public class CameraMouseControl : MonoBehaviour
     Camera player_camera;
 
     Vector2 ratio = Vector2.zero;
-    Vector3 initial_input;
+    // Vector3 initial_input;
 
     bool locked_mouse = false;
 
@@ -26,7 +26,7 @@ public class CameraMouseControl : MonoBehaviour
             locked_mouse = value;
 
             Cursor.lockState =
-                locked_mouse ? CursorLockMode.Locked : CursorLockMode.None;
+                locked_mouse ? CursorLockMode.Confined : CursorLockMode.None;
         }
     }
 
@@ -42,7 +42,7 @@ public class CameraMouseControl : MonoBehaviour
 
         Locked_Mouse = true;
 
-        initial_input = Input.mousePosition;
+        // initial_input = Input.mousePosition;
     }
 
     // move this to update if framerate doesnt really matter
