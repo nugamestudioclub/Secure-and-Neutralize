@@ -18,22 +18,25 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xMovement = Input.GetAxis("Horizontal");
-        float zMovement = Input.GetAxis("Vertical");
-
-        Vector3 movement = transform.right * xMovement + transform.forward * zMovement;
-
-        controller.Move(movement * speed * Time.deltaTime);
-
-        if (Input.GetKeyDown("f"))
+        if (!PlayerWorldInteractions.inDialogue)
         {
-            if (flashlight.activeSelf)
+            float xMovement = Input.GetAxis("Horizontal");
+            float zMovement = Input.GetAxis("Vertical");
+
+            Vector3 movement = transform.right * xMovement + transform.forward * zMovement;
+
+            controller.Move(movement * speed * Time.deltaTime);
+
+            if (Input.GetKeyDown("f"))
             {
-                flashlight.SetActive(false);
-            }
-            else
-            {
-                flashlight.SetActive(true);
+                if (flashlight.activeSelf)
+                {
+                    flashlight.SetActive(false);
+                }
+                else
+                {
+                    flashlight.SetActive(true);
+                }
             }
         }
     }
