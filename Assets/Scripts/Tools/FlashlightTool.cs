@@ -1,8 +1,88 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class FlashlightTool : Tool
 {
-    // WIP
+    bool tool_is_enabled = false;
+
+    [SerializeField]
+    float rate = 1f;
+
+    IEnumerator process;
+
+    protected override void Start()
+    {
+        SPRITE_NAME = "flashlight.png";
+        PREFAB_NAME = "Flashlight.prefab";
+
+        base.Start();
+
+
+        var cam = gameObject.GetComponentInChildren<Camera>();
+
+        related_prefab = GameObject.Instantiate(related_prefab, cam.transform);
+
+        InitTool();
+
+        DisableLight();
+    }
+
+    protected override void InitTool()
+    {
+        max_tool_value = 5;
+        tool_value = 5;
+        process = IEDeincrement();
+
+        if (tool_sprites != null && tool_value < tool_sprites.Length)
+        {
+            current_sprite = tool_sprites[tool_value];
+        }
+    }
+
+    public override bool UseTool()
+    {
+        if (tool_is_enabled)
+        {
+            DisableLight();
+        }
+
+        else if (tool_value > 0)
+        {
+            EnableLight();
+
+            return true;
+        }
+
+        return false;
+    }
+
+    void DisableLight()
+    {
+        related_prefab.SetActive(false);
+        this.enabled = tool_is_enabled = false;
+
+        StopCoroutine(process);
+    }
+
+    void EnableLight()
+    {
+        this.enabled = tool_is_enabled = true;
+        related_prefab.SetActive(true);
+
+        StartCoroutine(process);
+    }
+
+    IEnumerator IEDeincrement()
+    {
+        while (tool_value > 0)
+        {
+            tool_value -= 1;
+
+            Debug.Log("tool value: " + tool_value);
+
+            yield return new WaitForSeconds(rate);
+        }
+
+        DisableLight();
+    }
 }
