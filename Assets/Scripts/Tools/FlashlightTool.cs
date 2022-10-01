@@ -14,6 +14,12 @@ public class FlashlightTool : Tool
     {
         SPRITE_NAME = "flashlight.png";
         PREFAB_NAME = "Flashlight.prefab";
+        pickup_tag = "Battery";
+        do_top_off = true;
+
+        max_tool_value = 5;
+        tool_value = 5;
+        value_per_pickup = 5;
 
         base.Start();
 
@@ -29,8 +35,6 @@ public class FlashlightTool : Tool
 
     protected override void InitTool()
     {
-        max_tool_value = 5;
-        tool_value = 5;
         process = IEDeincrement();
 
         if (tool_sprites != null && tool_value < tool_sprites.Length)
@@ -69,6 +73,8 @@ public class FlashlightTool : Tool
         this.enabled = tool_is_enabled = true;
         related_prefab.SetActive(true);
 
+        process = IEDeincrement();
+        
         StartCoroutine(process);
     }
 

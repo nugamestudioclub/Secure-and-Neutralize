@@ -12,12 +12,13 @@ public abstract class Tool : MonoBehaviour
 
     // how much matches left? how much charge left?
     [SerializeField]
-    protected int tool_value;
-
-    [SerializeField]
-    protected int max_tool_value;
+    protected int tool_value, max_tool_value, value_per_pickup;
 
     protected string SPRITE_NAME, PREFAB_NAME;
+
+    protected bool do_top_off = false;
+
+    public string pickup_tag;
 
     protected GameObject related_prefab;
 
@@ -27,10 +28,6 @@ public abstract class Tool : MonoBehaviour
         // CHECK IF BACKSLASHES FOR ASSET PATH WORKS ON ALL SYSTEMS
 
         related_prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/" + PREFAB_NAME);
-
-        Debug.Log("Assets/Prefabs/" + PREFAB_NAME);
-        Debug.Log(related_prefab == null);
-        Debug.Log(related_prefab.name);
 
         var c = AssetDatabase.LoadAllAssetsAtPath("Assets/Images/ToolSprites/" + SPRITE_NAME);
 
@@ -107,31 +104,31 @@ public abstract class Tool : MonoBehaviour
     }
 
     // SetToolValue function
-    // returns true if the value passed would set the value to above
+    // returns true if value_per_pickup would set the value to above
     // the maximum. use this for if we want to prevent getting
     // too much of something, like too many matches or batteries.
     //
-    // if top_off is true, returns true but sets tool_value to the
+    // if do_top_off is true, returns true but sets tool_value to the
     // highest it can go, not higher. Use this if you want the consumable
     // to be used, but for the extra value to be lost.
-    // if you dont want it to be used, leave top_off as false. That way
+    // if you dont want it to be used, leave do_top_off as false. That way
     // you wont pick up the consumable if you cant "fit" it.
     // TODO: rework this to use Mathf.Clamp so it's actually readable.
-    public virtual bool SetToolValue(int v, bool top_off)
+    public virtual bool SetToolValue()
     {
-        if (v > max_tool_value)
+        if (value_per_pickup > max_tool_value)
         {
-            if (top_off)
+            if (do_top_off)
             {
                 tool_value = max_tool_value;
             }
 
-            return top_off;
+            return do_top_off;
         }
 
         else
         {
-            tool_value = (v < 0) ? 0 : v;
+            tool_value = (value_per_pickup < 0) ? 0 : value_per_pickup;
         }
 
         return true;

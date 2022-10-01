@@ -334,8 +334,7 @@ GameObject:
   - component: {fileID: 5048398993465901297}
   - component: {fileID: 2287233544970325576}
   - component: {fileID: 2287233544970325574}
-  - component: {fileID: 702583841193378303}
-  - component: {fileID: 3667172990588063284}
+  - component: {fileID: 4107019497256704827}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -392,7 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 2287233544970325576}
   speed: 10
---- !u!114 &702583841193378303
+--- !u!114 &4107019497256704827
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
