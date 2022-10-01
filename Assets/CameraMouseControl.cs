@@ -53,14 +53,14 @@ public class CameraMouseControl : MonoBehaviour
 
     void HandleMouseInput()
     {
-        Vector3 cache = Input.mousePosition - initial_input;
+        
+        float deltaX = Input.GetAxis("Mouse X");
+        float deltaY = Input.GetAxis("Mouse Y");
 
-        Vector3 rot = Vector3.zero;
-
-        rot.x = Mathf.Clamp(cache.y * ratio.y * -1f, -MaxXAngle, MaxXAngle);
-        rot.y = cache.x * ratio.x;
-        rot.z = 0f;
-
-        player_camera.transform.localEulerAngles = rot;
+       
+        player_camera.transform.Rotate(-deltaY,0, 0);
+        player_camera.transform.parent.Rotate(0, deltaX, 0);
+        //player_camera.transform.localEulerAngles = rot;
+        //player_camera.transform.localEulerAngles = player_camera.transform.localEulerAngles + new Vector3(deltaX,deltaY,0);
     }
 }
