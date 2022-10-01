@@ -29,10 +29,6 @@ public abstract class Tool : MonoBehaviour
 
         related_prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/" + PREFAB_NAME);
 
-        Debug.Log("Assets/Prefabs/" + PREFAB_NAME);
-        Debug.Log(related_prefab == null);
-        Debug.Log(related_prefab.name);
-
         var c = AssetDatabase.LoadAllAssetsAtPath("Assets/Images/ToolSprites/" + SPRITE_NAME);
 
         if (c.Length <= 0)
