@@ -53,12 +53,19 @@ public abstract class Tool : MonoBehaviour
         return instance;
     }
 
+    protected virtual void InitTool()
+    {
+        tool_value = 0;
+
+        current_sprite = tool_sprites[tool_value];
+    }
+
     // Use function.
     // returns true if the tool was used, false if not.
     // this allows for a "failed to use" animation
     public virtual bool UseTool()
     {
-        if ((tool_value-=1) >= 0)
+        if ((tool_value -= 1) >= 0)
         {
             // pass
 
@@ -68,15 +75,8 @@ public abstract class Tool : MonoBehaviour
         return false;
     }
 
-    protected virtual void InitTool()
+    public virtual Sprite GetCurrentSprite()
     {
-        tool_value = 0;
-
-        current_sprite = GetCurrentSprite();
-    }
-
-    protected virtual Sprite GetCurrentSprite()
-    {
-        return tool_sprites[tool_value];
+        return current_sprite;
     }
 }
