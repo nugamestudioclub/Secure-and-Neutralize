@@ -74,7 +74,7 @@ public class FlashlightTool : Tool
         related_prefab.SetActive(true);
 
         process = IEDeincrement();
-
+        
         StartCoroutine(process);
     }
 

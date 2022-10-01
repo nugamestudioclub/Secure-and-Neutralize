@@ -27,7 +27,6 @@ public class PlayerToolManager : MonoBehaviour
         // TODO:
         // Input to cycle between tools IF MULTIPLE TOOLS ARE ADDED
     }
-
     public bool ProcessPickup(string tag)
     {
         foreach (Tool t in tools)
@@ -40,6 +39,4 @@ public class PlayerToolManager : MonoBehaviour
 
         return false;
     }
-
-
 }
