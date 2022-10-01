@@ -28,5 +28,18 @@ public class PlayerToolManager : MonoBehaviour
         // Input to cycle between tools IF MULTIPLE TOOLS ARE ADDED
     }
 
+    public bool ProcessPickup(string tag)
+    {
+        foreach (Tool t in tools)
+        {
+            if (t.pickup_tag == tag && t.SetToolValue())
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
 }
