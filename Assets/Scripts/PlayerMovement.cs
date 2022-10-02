@@ -17,11 +17,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xMovement = Input.GetAxis("Horizontal");
-        float zMovement = Input.GetAxis("Vertical");
+        if (!PlayerWorldInteractions.inDialogue)
+        {
+            float xMovement = Input.GetAxis("Horizontal");
+            float zMovement = Input.GetAxis("Vertical");
 
-        Vector3 movement = transform.right * xMovement + transform.forward * zMovement;
+            Vector3 movement = transform.right * xMovement + transform.forward * zMovement;
 
-        controller.Move(speed * Time.deltaTime * movement);
+            controller.Move(movement * speed * Time.deltaTime);
+        }
     }
 }
