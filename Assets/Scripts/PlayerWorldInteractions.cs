@@ -10,10 +10,13 @@ public class PlayerWorldInteractions : MonoBehaviour
 
     public static bool inDialogue = false;
 
+    PlayerToolManager ptm;
+
     // Start is called before the first frame update
     void Start()
     {
         dm = GameObject.Find("DialogueBox").GetComponent<DialogueManager>();
+        ptm = GetComponent<PlayerToolManager>();
     }
 
     // Update is called once per frame
@@ -24,10 +27,9 @@ public class PlayerWorldInteractions : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, maxInteractDistance))
             {
-                if (hit.collider.gameObject.tag == "Battery")
+                if (ptm.ProcessPickup(hit.collider.gameObject.tag))
                 {
                     hit.collider.gameObject.SetActive(false);
-                    AddBattery();
                 }
                 else if (hit.collider.gameObject.tag == "Victim")
                 {
@@ -39,10 +41,5 @@ public class PlayerWorldInteractions : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void AddBattery()
-    {
-        Debug.Log("Collected 1 battery.");
     }
 }

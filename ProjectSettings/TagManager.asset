@@ -4,18 +4,19 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Monster
   - Battery
   - Victim
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Scannable
   - Water
   - UI
   - 
   - 
-  - 
+  - Radar
   - 
   - 
   - 
