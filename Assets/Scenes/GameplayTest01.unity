@@ -3293,21 +3293,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2287233544622944703, guid: 206a7694ca0f849d39004dbb99436635, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 2287233544970325574, guid: 206a7694ca0f849d39004dbb99436635, type: 3}
-      propertyPath: speed
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 2825640290370803532, guid: 206a7694ca0f849d39004dbb99436635, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2825640290370803532, guid: 206a7694ca0f849d39004dbb99436635, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5048398993465901297, guid: 206a7694ca0f849d39004dbb99436635, type: 3}
       propertyPath: m_RootOrder
