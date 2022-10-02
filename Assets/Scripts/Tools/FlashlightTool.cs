@@ -6,7 +6,7 @@ public class FlashlightTool : Tool
     bool tool_is_enabled = false;
 
     [SerializeField]
-    float rate = 1f;
+    float rate = 10f;
 
     IEnumerator process;
 
@@ -17,9 +17,9 @@ public class FlashlightTool : Tool
         pickup_tag = "Battery";
         do_top_off = true;
 
-        max_tool_value = 5;
-        tool_value = 5;
-        value_per_pickup = 5;
+        max_tool_value = 20;
+        tool_value = 20;
+        value_per_pickup = 4;
 
         base.Start();
 
