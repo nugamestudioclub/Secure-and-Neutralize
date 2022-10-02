@@ -23,7 +23,7 @@ public class SceneHandler : MonoBehaviour
 
     IEnumerator WaitForAnim()
     {
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(9f);
         
         LoadScene(0);
     }
