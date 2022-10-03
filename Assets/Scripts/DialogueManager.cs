@@ -9,7 +9,9 @@ public class DialogueManager : MonoBehaviour
     private GameObject dialogueTextObject;
     private TMP_Text dialogueText;
     private GameObject saveButton;
+    private TMP_Text saveButtonText;
     private GameObject doomButton;
+    private TMP_Text doomButtonText;
 
     private string[] currentDialogue;
     private int currentIndex;
@@ -23,14 +25,16 @@ public class DialogueManager : MonoBehaviour
         dialogueText = dialogueTextObject.GetComponent<TMP_Text>();
         dialogueTextObject.SetActive(false);
         saveButton = transform.Find("SaveButton").gameObject;
+        saveButtonText = saveButton.transform.Find("SaveButtonText").gameObject.GetComponent<TMP_Text>();
         saveButton.SetActive(false);
         doomButton = transform.Find("DoomButton").gameObject;
+        doomButtonText = doomButton.transform.Find("DoomButtonText").gameObject.GetComponent<TMP_Text>();
         doomButton.SetActive(false);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && PlayerWorldInteractions.inDialogue)
+        if (Input.GetKeyDown(KeyCode.E) && PlayerWorldInteractions.inDialogue && currentIndex < currentDialogue.Length-2)
         {
             AdvanceDialogue();
         }
@@ -51,12 +55,14 @@ public class DialogueManager : MonoBehaviour
     public void AdvanceDialogue()
     {
         currentIndex++;
-        if (currentIndex >= currentDialogue.Length)
+        if (currentIndex >= currentDialogue.Length-2)
         {
             dialogueText.text = "";
             dialogueTextObject.SetActive(false);
             saveButton.SetActive(true);
+            saveButtonText.SetText(currentDialogue[currentIndex]);
             doomButton.SetActive(true);
+            doomButtonText.SetText(currentDialogue[currentIndex + 1]);
             Cursor.lockState = CursorLockMode.None;
         }
         else
