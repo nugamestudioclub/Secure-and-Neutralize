@@ -6,7 +6,7 @@ using UnityEngine;
 public class ConfigurableSpriteRenderer : MonoBehaviour
 {
     [SerializeField]
-    private Texture[] texs;
+    private Sprite[] texs;
     [SerializeField]
     private int selected;
 
@@ -16,7 +16,8 @@ public class ConfigurableSpriteRenderer : MonoBehaviour
     void Start()
     {
         mat = GetComponent<MeshRenderer>().material;
-        mat.SetTexture("_BaseColorMap", texs[selected]);
+        mat.SetTexture("_BaseColorMap", texs[selected].texture);
+       
     }
 
     // Update is called once per frame
