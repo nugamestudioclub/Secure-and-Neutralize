@@ -1,0 +1,6 @@
+This is a test of the dialogue system.
+A new line means a new panel of dialogue.
+You press E to advance the dialogue to the next panel.
+Once all the dialogue is done, you will be presented with a choice:
+Save Them
+Doom Them

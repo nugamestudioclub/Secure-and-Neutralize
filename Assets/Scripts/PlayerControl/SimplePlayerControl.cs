@@ -7,7 +7,7 @@ public class SimplePlayerControl : MonoBehaviour
 {
     CharacterController controller;
 
-    [SerializeField, Range(0f, 50f)]
+    [SerializeField, Range(0f, 100f)]
     float moveForce = 10f;
 
     void Start()
@@ -30,10 +30,10 @@ public class SimplePlayerControl : MonoBehaviour
     void HandleInput()
     {
         Vector3 current_movement = Vector3.zero;
-
+        
         current_movement +=
-            transform.forward * Input.GetAxis("Horizontal") +
-            transform.right * Input.GetAxis("Vertical");
+            transform.forward * Input.GetAxis("Vertical")*Time.deltaTime +
+            transform.right * Input.GetAxis("Horizontal")*Time.deltaTime;
 
         controller.SimpleMove(current_movement * moveForce);
     }

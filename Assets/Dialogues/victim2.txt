@@ -1,0 +1,9 @@
+Phased 2: “You’re one of them! Those damn scientists who made this godforsaken place!”
+Operator 28: “Calm down. I can help you leave this place.”
+Phased 2: “As if. I know who you work for.”
+Operator 28: “Sir, I’m only here to help. Where was the last place you were on the outside?”
+Phased 2: “Oh yeah, I was just chilling drinking beers in None of, Your Business, Asshole.
+Operator 28: “Please cooperate. What is your profession?”
+Phased 2: “Fuck you. I’m not telling you shit.”
+Operator 28: “If you won’t answer my questions, I cannot help you.”
+Phased 2:  “Go to hell. You’re worse than the monsters lurking these halls.”
