@@ -11,12 +11,17 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject t;
 
+    [SerializeField]
+    AudioSource bgm;
+
     public delegate void GameStart();
     public static GameStart GSEffects;
 
     private void Start()
     {
         ui_animator = GetComponent<Animator>();
+
+        AudioManagerScript.instance.PlaySound(bgm, "Radar theme v2");
     }
 
     public void PlayGameAnim()

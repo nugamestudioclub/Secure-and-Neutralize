@@ -19,15 +19,14 @@ public class AudioManagerScript : MonoBehaviour
         DontDestroyOnLoad(this);
 
         instance = this;
-    }
 
-    private void Start()
-    {
         dict = new Dictionary<string, AudioClip>();
 
         foreach (AudioClip c in clips)
         {
             dict.Add(c.name, c);
+
+            Debug.Log(c.name);
         }
     }
 
@@ -36,7 +35,7 @@ public class AudioManagerScript : MonoBehaviour
         // set the soundclip of s to filename (from dictionary)
 
         // play sound of s
-        if (s.clip.name != filename)
+        if (s.clip == null || s.clip.name != filename)
         {
             s.clip = dict[filename];
         }

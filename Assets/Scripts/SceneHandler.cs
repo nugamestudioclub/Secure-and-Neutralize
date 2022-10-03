@@ -9,7 +9,6 @@ public class SceneHandler : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this);
-        AudioManagerScript.instance.PlaySound("Radar theme v2");
     }
 
     public static void LoadScene(int index)
@@ -26,7 +25,7 @@ public class SceneHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(9f);
         
-        LoadScene(0);
+        LoadScene(1); // Buildindex of first level 
     }
 
     public void Quit()
