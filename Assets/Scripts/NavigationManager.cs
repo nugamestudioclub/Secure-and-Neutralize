@@ -10,15 +10,18 @@ public class NavigationManager : MonoBehaviour
     private NavMeshAgent navigationAgent;
     [SerializeField]
     private float speed = 5f;
-
     [SerializeField]
-    private Vector3 testDestination;
+    private Vector3 target;
+    
 
     public void Target(Vector3 destination)
     {
         navigationAgent.SetDestination(destination);
         navigationAgent.speed = speed;
         navigationAgent.isStopped = false;
+        navigationAgent.destination = destination;
+        this.target = destination;
+        print("Updated to:" + destination.ToString());
     }
 
     public void StopNavigation()
