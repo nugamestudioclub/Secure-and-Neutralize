@@ -9,6 +9,7 @@ public class SceneHandler : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this);
+        AudioManagerScript.instance.PlaySound("Radar theme v2");
     }
 
     public static void LoadScene(int index)
