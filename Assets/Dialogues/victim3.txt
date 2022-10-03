@@ -1,0 +1,12 @@
+Operator 28: “Ma’am?”
+Phased 3: “Are you here to save me?”
+Operator 28: “Yes ma’am, I just need you to answer a few questions for me.”
+Phased 3: “Sure.”
+Operator 28: “Do you remember the last place you were on the outside?”
+Phased 3: “I don’t know. It’s-it’s been too long. I- I can’t remember… ” 
+Operator 28: “Remain calm. What is your profession?”
+Phased 3: “Pro-profession? I can’t, I can’t, I don’t even know who I am anymore. Thi-this place… it’s - it’s, so dark… The sounds, the sounds, they’re coming from everywhere…”
+Operator 28: Are you hearing things right now? What are you seeing?”
+Phased 3: “There’s-There’s nothing to see. You can’t see them coming. But they’re coming. Oh god, they’re coming for us now aren’t they? Please, Please! You have to save me! Please, I just want to go home…”
+Tell her the way out —----- She is turning. She cannot leave.
+Phased 3: “Thank-Thank you. I’ll finally be able to remember.”
