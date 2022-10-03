@@ -140,6 +140,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7312977751434213898}
   - component: {fileID: 9195038718937019906}
+  - component: {fileID: 1092761408}
+  - component: {fileID: 1092761409}
   m_Layer: 0
   m_Name: Victim
   m_TagString: Untagged
@@ -178,6 +180,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueFile: {fileID: 4900000, guid: a2ebeda668a424459b6cc64fd8f48d69, type: 3}
   interactTexts: []
+--- !u!195 &1092761408
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864872179925653631}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1.24
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1092761409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864872179925653631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676730ce6a4422145b4238c032b8c2d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navigationAgent: {fileID: 1092761408}
+  speed: 5
 --- !u!1 &9195038718592387841
 GameObject:
   m_ObjectHideFlags: 0

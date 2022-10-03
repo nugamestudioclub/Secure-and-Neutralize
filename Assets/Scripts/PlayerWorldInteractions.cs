@@ -12,6 +12,11 @@ public class PlayerWorldInteractions : MonoBehaviour
 
     PlayerToolManager ptm;
 
+    [SerializeField]
+    public static float goodNumKilled = 0;
+    [SerializeField]
+    public static float goodNumEscaped = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +41,9 @@ public class PlayerWorldInteractions : MonoBehaviour
                     if (!PlayerWorldInteractions.inDialogue)
                     {
                         VictimBehavior victim = hit.transform.parent.gameObject.GetComponent<VictimBehavior>();
-                        dm.SetDialogue(victim.interactTexts);
+                        if(!victim.onWay)
+                        dm.SetDialogue(victim.interactTexts,victim.GetComponent<NavigationManager>());
+
                     }
                 }
             }

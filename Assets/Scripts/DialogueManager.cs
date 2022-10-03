@@ -14,6 +14,13 @@ public class DialogueManager : MonoBehaviour
     private string[] currentDialogue;
     private int currentIndex;
 
+    private NavigationManager activeVictimNav;
+    [SerializeField]
+    private Transform exit;
+    [SerializeField]
+    private Transform monster;
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +43,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void SetDialogue(string[] dialogueArray)
+    public void SetDialogue(string[] dialogueArray,NavigationManager active)
     {
         currentIndex = 0;
         currentDialogue = dialogueArray;
@@ -46,6 +53,7 @@ public class DialogueManager : MonoBehaviour
         dialogueTextObject.SetActive(true);
         dialogueText.text = currentDialogue[0];
         PlayerWorldInteractions.inDialogue = true;
+        this.activeVictimNav = active;
     }
 
     public void AdvanceDialogue()
@@ -77,10 +85,17 @@ public class DialogueManager : MonoBehaviour
     public void SaveChosen()
     {
         EndDialogue();
+        activeVictimNav.Target(exit.transform.position);
+        activeVictimNav.GetComponent<VictimBehavior>().onWay = true;
     }
 
     public void DoomChosen()
     {
         EndDialogue();
+        activeVictimNav.Target(monster.position);
+        activeVictimNav.GetComponent<VictimBehavior>().onWay = true;
     }
+
+
+
 }
