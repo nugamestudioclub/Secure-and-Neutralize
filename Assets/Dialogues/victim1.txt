@@ -1,0 +1,11 @@
+Phased 1: “Who are you? What’s with the suit? Do you know how to get out of here?”
+Operator 28: “Remain calm. I can help you to leave this place.”
+Phased 1: “Oh thank god. Thank you. Please, show me the way. I need to get back home to my family.”
+Operator 28: “Do you remember the last place you were?”
+Phased 1: “Yes, I was eating Thai food with my family in Naperville, Chicago. I got up to use the bathroom, and I suddenly felt a falling feeling and ended up here.”
+Operator 28: “I see. What is your profession?”
+Phased 1: “Why does that matter now? I’m a dentist. I run a clinic with my wife.”
+Operator 28: “Are you feeling strange at all? Have you noticed any abnormal growths or strange visions?”
+Phased 1: “Uh, no. Is this place radioactive?”
+Operator 28: “Yes, it is. You must head to the exit immediately.”
+Tell him the way out —----- Mislead him, he’s already too far gone

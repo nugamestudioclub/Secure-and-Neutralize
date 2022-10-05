@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class PlayerToolManager : MonoBehaviour
 {
-    Tool current_tool;
+    //[HideInInspector]
+    //public Tool current_tool;
 
-    List<Tool> tools = new List<Tool>();
 
+    //List<Tool> tools = new List<Tool>();
+    public TempFlashlightComponent flashlight;
     KeyCode UseItem = KeyCode.F;
 
     private void Start()
     {
-        tools.Add(Tool.CreateInstance<FlashlightTool>(gameObject));
-
-        current_tool = tools[0];
+        //tools.Add(Tool.CreateInstance<FlashlightTool>(gameObject));
+        flashlight.Toggle();
+        //current_tool = tools[0];
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(UseItem))
         {
-            current_tool.UseTool();
+            // current_tool.UseTool();
+            flashlight.Toggle();
+            
         }
 
         // TODO:
@@ -29,13 +33,13 @@ public class PlayerToolManager : MonoBehaviour
     }
     public bool ProcessPickup(string tag)
     {
-        foreach (Tool t in tools)
-        {
-            if (t.pickup_tag == tag && t.SetToolValue())
-            {
-                return true;
-            }
-        }
+        //foreach (Tool t in tools)
+       // {
+       //     if (t.pickup_tag == tag && t.SetToolValue())
+        //    {
+        //        return true;
+       //     }
+      //  }
 
         return false;
     }

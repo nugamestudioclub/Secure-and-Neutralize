@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
     Animator ui_animator;
+
 
     private void Start()
     {
@@ -26,5 +28,9 @@ public class UIManager : MonoBehaviour
     public void DisableOptions()
     {
         ui_animator.Play("OpenMenu");
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
