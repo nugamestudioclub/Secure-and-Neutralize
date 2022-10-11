@@ -7,6 +7,7 @@ TagManager:
   - Monster
   - Battery
   - Victim
+  - Exit
   layers:
   - Default
   - TransparentFX

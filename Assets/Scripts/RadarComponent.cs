@@ -17,6 +17,7 @@ public class RadarComponent : MonoBehaviour
     {
         timeElapsed = 0;
         GameObject.Find("RadarCamera").GetComponent<Camera>().orthographicSize = scanRadius;
+        InvokeRepeating("Scan", 1f, 10);
     }
 
     // Update is called once per frame
@@ -27,12 +28,12 @@ public class RadarComponent : MonoBehaviour
         if (timeElapsed > 10)
         {
             timeElapsed = 0;
-            Scan();
+            //Scan();
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Scan();
+            //Scan();
         }
     }
 

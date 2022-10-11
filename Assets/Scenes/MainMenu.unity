@@ -2385,7 +2385,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Instructions
+
+  m_text: Secure and Neutralize
+
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fd9b014b78d5348aab4312e80dc13d90, type: 2}
   m_sharedMaterial: {fileID: 5822099067756052155, guid: fd9b014b78d5348aab4312e80dc13d90, type: 2}
@@ -3820,7 +3822,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1529684393}
   - component: {fileID: 1529684392}
-  - component: {fileID: 1529684391}
   - component: {fileID: 1529684394}
   m_Layer: 0
   m_Name: Main Camera
@@ -3829,14 +3830,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1529684391
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1529684390}
-  m_Enabled: 1
 --- !u!20 &1529684392
 Camera:
   m_ObjectHideFlags: 0
@@ -5330,7 +5323,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2089123747}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1418736293}
+        m_TargetAssemblyTypeName: SceneHandler, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2089123747
 MonoBehaviour:
   m_ObjectHideFlags: 0

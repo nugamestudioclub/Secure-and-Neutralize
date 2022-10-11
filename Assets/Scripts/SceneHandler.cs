@@ -26,7 +26,7 @@ public class SceneHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(9f);
         
-        LoadScene(0);
+        LoadScene(1);
     }
 
     public void Quit()

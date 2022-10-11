@@ -21,7 +21,7 @@ public class NavigationManager : MonoBehaviour
         navigationAgent.isStopped = false;
         navigationAgent.destination = destination;
         this.target = destination;
-        print("Updated to:" + destination.ToString());
+        
     }
 
     public void StopNavigation()

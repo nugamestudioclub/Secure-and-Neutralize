@@ -13,9 +13,21 @@ public class PlayerWorldInteractions : MonoBehaviour
     PlayerToolManager ptm;
 
     [SerializeField]
-    public static float goodNumKilled = 0;
+    public static int goodNumKilled = 0;
     [SerializeField]
-    public static float goodNumEscaped = 0;
+    public static int goodNumEscaped = 0;
+    [SerializeField]
+    public static int badNumKilled = 0;
+    [SerializeField]
+    public static int badNumEscaped = 0;
+    [SerializeField]
+    public static int badNum = 0;
+    [SerializeField]
+    public static int goodNum = 0;
+    [HideInInspector]
+    public static bool isGameOver = false;
+    public static int peopleLeft = 0;
+    
 
     // Start is called before the first frame update
     void Start()

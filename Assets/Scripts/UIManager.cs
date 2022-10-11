@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
     Animator ui_animator;
+
 
     [SerializeField]
     GameObject t;
 
     public delegate void GameStart();
     public static GameStart GSEffects;
+
 
     private void Start()
     {
@@ -38,8 +41,14 @@ public class UIManager : MonoBehaviour
         ui_animator.Play("OpenMenu");
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     public void ToggleText()
     {
         t.SetActive(!t.activeInHierarchy);
+
     }
 }

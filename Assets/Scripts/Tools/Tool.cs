@@ -9,10 +9,13 @@ public abstract class Tool : MonoBehaviour
     protected Sprite[] tool_sprites;
 
     protected Sprite current_sprite;
+    public GameObject prefab;
 
     // how much matches left? how much charge left?
     [SerializeField]
     protected int tool_value, max_tool_value, value_per_pickup;
+    public int ToolValue { get { return this.tool_value; } }
+    public int MaxToolvalue { get { return this.max_tool_value; } }
 
     protected string SPRITE_NAME, PREFAB_NAME;
 
@@ -27,40 +30,40 @@ public abstract class Tool : MonoBehaviour
         // TODO:
         // CHECK IF BACKSLASHES FOR ASSET PATH WORKS ON ALL SYSTEMS
 
-        related_prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/" + PREFAB_NAME);
+        //related_prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/" + PREFAB_NAME);
 
-        var c = AssetDatabase.LoadAllAssetsAtPath("Assets/Images/ToolSprites/" + SPRITE_NAME);
+        //var c = AssetDatabase.LoadAllAssetsAtPath("Assets/Images/ToolSprites/" + SPRITE_NAME);
 
-        if (c.Length <= 0)
-        {
-            Debug.LogWarning("Filepath: Assets/Images/ToolSprites/" + SPRITE_NAME + " failed to load. " +
-                "Are you missing the sprite?");
+        //if (c.Length <= 0)
+       // {
+        ///    Debug.LogWarning("Filepath: Assets/Images/ToolSprites/" + SPRITE_NAME + " failed to load. " +
+           //     "Are you missing the sprite?");
 
-            tool_sprites = new Sprite[1] { null };
+          //  tool_sprites = new Sprite[1] { null };
 
-            return;
-        }
+         //   return;
+      //  }
 
-        tool_sprites = new Sprite[c.Length - 1]; // -1 bc of the null asset
+       // tool_sprites = new Sprite[c.Length - 1]; // -1 bc of the null asset
 
-        int skip = 0;
+      //  int skip = 0;
 
-        for (int i = 0; i < c.Length; i++)
-        {
-            var cache = c[i] as Sprite;
+      //  for (int i = 0; i < c.Length; i++)
+      //  {
+       //     var cache = c[i] as Sprite;
 
-            if (cache == null)
-            {
-                skip = -1;
-                continue;
-            }
+       //     if (cache == null)
+       //     {
+         //       skip = -1;
+         //       continue;
+        //    }
 
-            tool_sprites[i + skip] = cache;
+       //     tool_sprites[i + skip] = cache;
         }
 
         // in case the sprites load not in order
-        Array.Sort(tool_sprites, new Comparison<Sprite>((i1, i2) => i1.name.CompareTo(i2.name)));
-    }
+       // Array.Sort(tool_sprites, new Comparison<Sprite>((i1, i2) => i1.name.CompareTo(i2.name)));
+  //  }
 
     /// <summary>
     /// Adds a Tool component to the GameObject target and intantiates it.

@@ -316,7 +316,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 1.32
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1815580861
@@ -333,3 +333,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navigationAgent: {fileID: 1815580860}
   speed: 5
+  target: {x: 0, y: 0, z: 0}

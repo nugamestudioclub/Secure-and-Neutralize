@@ -26,6 +26,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        exit = GameObject.FindGameObjectWithTag("Exit").transform;
         backPanel = transform.Find("Panel").gameObject;
         backPanel.SetActive(false);
         dialogueTextObject = transform.Find("DialogueText").gameObject;
@@ -58,6 +59,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = currentDialogue[0];
         PlayerWorldInteractions.inDialogue = true;
         this.activeVictimNav = active;
+        print("Set active");
     }
 
     public void AdvanceDialogue()
@@ -91,6 +93,7 @@ public class DialogueManager : MonoBehaviour
     public void SaveChosen()
     {
         EndDialogue();
+        print("Do we still know active?:" + (activeVictimNav != null).ToString());
         activeVictimNav.Target(exit.transform.position);
         activeVictimNav.GetComponent<VictimBehavior>().onWay = true;
     }

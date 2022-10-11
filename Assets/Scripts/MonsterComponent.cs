@@ -20,18 +20,19 @@ public class MonsterComponent : MonoBehaviour
     private float minDistanceForKill = 5f;
 
     private Vector3 lastClosest;
-    
-    
+
+    private float pingHit;
 
     // Start is called before the first frame update
     void Start()
     {
-        lastClosest = player.transform.position;
-        InvokeRepeating("Ping", 0.0001f, 10);
+        
+        InvokeRepeating("Ping", 01f, 10);
         player = GameObject.FindObjectOfType<PlayerMovement>();
         VictimBehavior[] personsVictims = GameObject.FindObjectsOfType<VictimBehavior>();
         personsWalking = new Transform[personsVictims.Length];
-        for(int i = 0; i < personsVictims.Length; i++)
+        lastClosest = player.transform.position;
+        for (int i = 0; i < personsVictims.Length; i++)
         {
             personsWalking[i] = personsVictims[i].transform;
         }
@@ -42,26 +43,47 @@ public class MonsterComponent : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 closest = lastClosest;
+        Ray ray;
+        RaycastHit hit;
+
         foreach(Transform person in personsWalking)
         {
-            float distToPerson = Vector3.Distance(person.position, transform.position);
-            if (distToPerson < minDistanceForVisual&&Vector3.Distance(transform.position,closest)>distToPerson)
+            if(person.gameObject.activeInHierarchy)
             {
-                closest = person.position;
-            }
-
-            if (Vector3.Distance(person.position, transform.position) < minDistanceForKill)
-            {
-                person.gameObject.SetActive(false);
-                if (person.gameObject.GetComponent<VictimBehavior>().isGood)
+                ray = new Ray();
+                ray.origin = transform.position;
+                ray.direction = person.transform.position - transform.position;
+                if (Physics.Raycast(ray, out hit))
                 {
-                    PlayerWorldInteractions.goodNumKilled += 1;
+                    nav.Target(person.transform.position);
+                }
+                if (Vector3.Distance(person.transform.position, transform.position) < minDistanceForKill)
+                {
+
+                    if (person.GetComponent<VictimBehavior>().isGood)
+                        PlayerWorldInteractions.goodNumKilled += 1;
+                    else
+                        PlayerWorldInteractions.badNumKilled += 1;
+                    person.transform.gameObject.SetActive(false);
                 }
             }
+           
+            
         }
-        nav.Target(closest);
 
-        
+        ray = new Ray();
+        ray.origin = transform.position;
+        ray.direction = player.transform.position - transform.position;
+        hit = new RaycastHit();
+        if(Physics.Raycast(ray,out hit))
+        {
+            nav.Target(player.transform.position);
+        }
+       
+        if (Vector3.Distance(player.transform.position, transform.position) < minDistanceForKill)
+        {
+            SceneManager.LoadScene("EndGameScore");
+        }
     }
 
     private void Ping()
